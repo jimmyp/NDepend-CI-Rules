@@ -1,0 +1,15 @@
+image: Visual Studio 2017
+
+before_build:
+    - ps: nuget restore
+
+build:
+    project: SomeProject.sln
+
+after_build:
+    - ps: $ndproj = Resolve-Path .\SomeProject.ndproj
+    - ps: .tools\NDepend\NDepend.Console.exe $ndproj
+
+artifacts:
+  - path: NDependOut\NDependReport.html
+    name: NDependReport
