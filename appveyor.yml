@@ -8,7 +8,7 @@ build:
 
 after_build:
     - ps: $ndproj = Resolve-Path .\SomeProject.ndproj
-    - ps: .tools\NDepend\NDepend.Console.exe $ndproj
+    - ps: .\tools\NDepend\NDepend.Console.exe $ndproj
 
 artifacts:
   - path: NDependOut\NDependReport.html
