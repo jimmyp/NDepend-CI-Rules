@@ -11,5 +11,6 @@ after_build:
     - ps: .\tools\NDepend\NDepend.Console.exe $ndproj
 
 artifacts:
-  - path: NDependOut\NDependReport.html
-    name: NDependReport
+  - path: NDependOut
+    name: NDependOut
+    type: zip
